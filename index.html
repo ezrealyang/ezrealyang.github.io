@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <link rel="stylesheet" href="semantic.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>北上广深育儿成本</title>
+    <script src="echarts.min.js"></script>
+    <style media="screen">
+      body{
+        font-family: Microsoft Yahei;
+      }
+      a:link{
+        color: orange
+      }
+      a:visited {color:rgb(255, 255, 255)}
+    </style>
+  </head>
+  <body>
+    <div class="" style="background:url(banner.png);background-size:cover;background-attachment:fixed;">
+      <div class="container" style="padding-top:12%;padding-bottom:12%;">
+        <h1 class="ui centered header" style="font-weight: 300;color:white;font-family:Microsoft YaHei;font-size: 48px;margin-bottom:0px;">北上广深育儿成本</h1>
+        <span class="line" style="display:inline-block;width:400px;height:3px;background:white;margin-left:50%;transform: translate(-50%,0);"></span>
+        <h1 class="ui centered header" style="font-weight: 300;color:white;font-family:Microsoft YaHei;margin-top :0px;">中国式家长，付出了多少？</h1>
+        <p style="width: 400px;font-weight: 300;color:white;font-family:Microsoft YaHei;font-size: 14px;margin-top:50px;margin-left:50%;transform: translate(-50%,0);">央视网近期根据接受采访的家庭，以某中等城市的一个中等家庭为例来算一算：从生育到大学本科结束，费用相加共计74万，如果留学则没有上限。我们育儿专家团队，通过多方数据调研，以中国一线城市北上广深家庭为样本，描绘出抚养子女的大致成本，尝试通过数据与你量化“中国式父母”的爱。</p>
+        <p style="width: 400px;font-weight: 300;color:white;font-family:Microsoft YaHei;font-size: 14px;margin-left:50%;transform: translate(-50%,0);margin-bottom:30px;">此外，你也可以通过点击下面的按钮，体验我们的可交互游戏，看看在你个人的决策下，所需育儿成本是多少。</p>
+
+        <div class="" style="text-align:center">
+          <a href="#start"><button class="ui inverted white basic button">点击此处继续浏览</button></a>
+            <a href="https://m.rrxiu.net/?v=l5yzep&vt=2"><button class="ui inverted orange basic button">点击此处开始游戏</button></a>
+        </div>
+
+      </div>
+    </div>
+<!-- 序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言序言 -->
+<a name="start"></a>
+    <div class="container" style="padding-top:10%;padding-bottom:10%;">
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div style="margin-top:50px;margin-bottom:100px;color:rgb(141, 145, 144)">
+            <img src="引号.png" alt="" style="width:6%;margin-bottom:10px;">
+            <p style="font-size:24px;">网上有这么一个段子，养个孩子长大到大学毕业，从衣食住行到各种兴趣班，再到补课费用、生活费，这么一大笔的花费都可以直接在北上广买一套房子了。</p>
+            <p style="font-size:24px;">也有人说，男孩子就应该穷养，让他学会自己努力，女孩子就该富养，什么都要给她最好的，那你究竟会怎么选择呢？这些选择背后，又对应着多少支出呢？</p>
+            <p style="font-size:24px;">为此，我们制作了北上广深等城市的育儿成本图鉴，仅供参考。”</p>
+          </div>
+        </div>
+
+
+        <div class="col-lg-6" >
+          <img class="img-responsive" src="grow.png" alt="" style="width:100%;">
+        </div>
+      </div>
+    </div>
+
+
+<!-- 关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1关卡1 -->
+
+<div class="" style="background:url(vitamin.jpg);background-size:cover;background-attachment:fixed;">>
+  <div class="container" style="padding-top:10%;padding-bottom:10%;">
+    <div class="row">
+
+      <div class="col-lg-4" style="">
+        <div id="main" style="width:1000px;height:800px;margin-left:50%;transform: translate(-50%,0);"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main'));
+
+            var data = [
+                [30, 450, 240],
+                [70, 420, 245],
+                [188, 374, 281],
+                [70, 420, 245],
+                [60, 259, 159.5],
+            ];
+            var cities = ['叶酸', '维生素', '孕产妇配方奶粉', '保健品', '钙片'];
+            var barHeight = 10;
+
+            option = {
+                legend: {
+                    show: true,
+                    data: ['价格范围', '均值'],
+                    textStyle: {
+                        color: "white",
+                        fontSize: 24
+                    }
+                },
+                dataZoom: [{
+                    type: 'inside',
+                    start: 0,
+                    end: 100
+                }],
+                grid: {
+                    top: 100
+                },
+                angleAxis: {
+                    axisLabel: {
+                        fontSize: 24
+                    },
+                    type: 'category',
+                    data: cities,
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white' //坐标轴线颜色
+                        },
+                    }
+                },
+                tooltip: {
+                    show: true,
+                    formatter: function(params) {
+                        var id = params.dataIndex;
+                        return cities[id] + '<br>最低：' + data[id][0] + '<br>最高：' + data[id][1] + '<br>平均：' + data[id][2];
+                    }
+                },
+                radiusAxis: {
+                    axisLabel: {
+                        fontSize: 24
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white' //坐标轴线颜色
+                        },
+                    }
+                },
+                polar: {},
+                series: [{
+                    type: 'bar',
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    data: data.map(function(d) {
+                        return d[0];
+                    }),
+                    coordinateSystem: 'polar',
+                    stack: '最大最小值',
+                    silent: true
+                }, {
+                    type: 'bar',
+                    data: data.map(function(d) {
+                        return d[1] - d[0];
+                    }),
+                    coordinateSystem: 'polar',
+                    name: '价格范围',
+                    stack: '最大最小值'
+                }, {
+                    type: 'bar',
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    data: data.map(function(d) {
+                        return d[2] - barHeight;
+                    }),
+                    coordinateSystem: 'polar',
+                    stack: '均值',
+                    silent: true,
+                    z: 10
+                }, {
+                    type: 'bar',
+                    data: data.map(function(d) {
+                        return barHeight * 2
+                    }),
+                    coordinateSystem: 'polar',
+                    name: '均值',
+                    stack: '均值',
+                    barGap: '-100%',
+                    z: 10
+                }],
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        </script>
+        <p style="font-size:12px;color:white;font-weight:300;text-align:center;">*数据来源：淘宝等电商平台近期销售数据</p>
+      </div>
+
+      <div class="col-lg-8" style="padding-left:15%;padding-top:13%;">
+          <p style="font-size:32px;font-weight:500;color:white;">备孕：从-1岁开始</p>
+          <p style="font-size:24px;color:white;font-weight:300;">坐标北上广深的小丽和老王步入了婚姻的殿堂，幸福的生活里却总少不了婆婆和家里人的催促，“赶紧生个孩子吧！我还能帮你们带带孩子呢！”。于是乎，生孩子的计划，提上了日常！都说孩子不能输在起跑线上，怀孕之前的准备似乎也很重要。</p>
+          <p style="font-size:24px;color:white;font-weight:300;">老王提前了半年禁烟禁酒，小丽则在网上搜索着相关备孕准备，而营养品是必不可少的。少到30一瓶，多则400一瓶的叶酸，以及其他各类维生素，再到各种钙片和口服液都加入到了营养计划之中，可这真不是一笔小价钱啊。</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    <!-- 关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2关卡2 -->
+
+    <div class="" style="background:url(birth.jpg);background-size:cover;background-attachment:fixed;">>
+      <div class="container" style="padding-top:10%;padding-bottom:10%;">
+        <div class="row">
+          <div class="col-lg-7" style="padding-right:15%;padding-top:17%;">
+              <p style="font-size:32px;font-weight:500;color:white;">十月怀胎只等这一刻</p>
+              <p style="font-size:24px;color:white;font-weight:300;">起初是难受的孕吐折磨着小丽，后来身材的变化和对身体的压力更是痛苦，终于十个月的时间过去了，到了要卸货的时间啦！究竟选择公立医院还是私立医院的问题，让小丽开始纠结。</p>
+              <p style="font-size:24px;color:white;font-weight:300;">顺产所花的钱虽然较低，但私立医院顺产竟然高于公立医院7000块钱，对于更贵的剖腹产来说，在私立医院更是需要16000元。</p>
+
+          </div>
+
+          <div class="col-lg-5" style="">
+            <div id="birth" style="width:1000px;height:800px;margin-left:50%;transform: translate(-50%,0);"></div>
+            <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('birth'));
+
+                var data = [
+                    [4000, 13000, 8500],
+                    [3000, 5000, 4000],
+                    [6000, 10000, 8000],
+                    [10000, 12000, 11000],
+                    [12000, 20000, 16000],
+                ];
+                var cities = ['产检费用', '公立医院顺产', '公立医院剖腹产', '私立医院顺产', '私立医院剖腹产'];
+                var barHeight = 50;
+
+                option = {
+                    legend: {
+                        show: true,
+                        data: ['价格范围', '均值'],
+                        textStyle: {
+                            color: "white",
+                            fontSize: 24
+                        }
+                    },
+                    dataZoom: [{
+                        type: 'inside',
+                        start: 0,
+                        end: 100
+                    }],
+                    grid: {
+                        top: 100
+                    },
+                    angleAxis: {
+                        axisLabel: {
+                            fontSize: 24
+                        },
+                        type: 'category',
+                        data: cities,
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white' //坐标轴线颜色
+                            },
+                        }
+                    },
+                    tooltip: {
+                        show: true,
+                        formatter: function(params) {
+                            var id = params.dataIndex;
+                            return cities[id] + '<br>最低：' + data[id][0] + '<br>最高：' + data[id][1] + '<br>平均：' + data[id][2];
+                        }
+                    },
+                    radiusAxis: {
+                        axisLabel: {
+                            fontSize: 24
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white' //坐标轴线颜色
+                            },
+                        }
+                    },
+                    polar: {},
+                    series: [{
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {
+                                color: 'transparent'
+                            }
+                        },
+                        data: data.map(function(d) {
+                            return d[0];
+                        }),
+                        coordinateSystem: 'polar',
+                        stack: '最大最小值',
+                        silent: true
+                    }, {
+                        type: 'bar',
+                        data: data.map(function(d) {
+                            return d[1] - d[0];
+                        }),
+                        coordinateSystem: 'polar',
+                        name: '价格范围',
+                        stack: '最大最小值'
+                    }, {
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {
+                                color: 'transparent'
+                            }
+                        },
+                        data: data.map(function(d) {
+                            return d[2] - barHeight;
+                        }),
+                        coordinateSystem: 'polar',
+                        stack: '均值',
+                        silent: true,
+                        z: 10
+                    }, {
+                        type: 'bar',
+                        data: data.map(function(d) {
+                            return barHeight * 2
+                        }),
+                        coordinateSystem: 'polar',
+                        name: '均值',
+                        stack: '均值',
+                        barGap: '-100%',
+                        z: 10
+                    }],
+                };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            </script>
+            <p style="font-size:12px;color:white;font-weight:300;text-align:center;">*数据来源：综合、妇产医院相关公开数据</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3关卡3 -->
+
+
+    <div class="" style="background:url(babysist.jpg);background-size:cover;background-attachment:fixed;">
+      <div class="container" style="padding-top:10%;padding-bottom:10%;">
+        <div class="row">
+
+          <div class="col-lg-5" style="">
+            <div id="sister" style="width:1000px;height:800px;margin-left:50%;transform: translate(-50%,0);"></div>
+            <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('sister'));
+
+                var option = {
+                    angleAxis: {
+                        axisLabel: {
+                            fontSize: 24
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white' //坐标轴线颜色
+                            },
+                        }
+                    },
+                    radiusAxis: {
+                        axisLabel: {
+                            fontSize: 23
+                        },
+                        type: 'category',
+                        data: ['深圳', '广州', '上海', '北京', ],
+                        z: 10,
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white' //坐标轴线颜色
+                            },
+                        }
+                    },
+                    polar: {},
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "费用 <br/>{b}: {c}元"
+                    },
+                    series: [{
+                        type: 'bar',
+                        data: [14600, 13900, 13000, 14400],
+                        coordinateSystem: 'polar',
+                        name: '公立幼儿园学费',
+                        stack: 'a'
+                    }],
+
+                }
+
+
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            </script>
+            <p style="font-size:12px;color:white;font-weight:300;text-align:center;">*数据来源：58到家等月嫂服务提供商公开数据</p>
+          </div>
+
+          <div class="col-lg-7" style="padding-left:15%;padding-top:18%;">
+            <p style="font-size:32px;font-weight:500;color:white;">月嫂：双职工家庭的唯一选择</p>
+            <p style="font-size:24px;color:white;font-weight:300;">在医院经历了一番痛苦的挣扎之后，小丽和老王抱着他们可爱的小王回家了。每天孩子的哭闹以及没有经验的慌乱让夫妻俩不知所措，于是乎新兴的月嫂成为了他们的选择，可是这笔费用，真是高昂。</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+<!-- 产期护理、幼儿园产期护理、幼儿园产期护理、幼儿园产期护理、幼儿园产期护理、幼儿园产期护理、幼儿园 -->
+
+    <div class="" style="background:url(school.jpg);background-size:cover;background-attachment:fixed;">
+      <div class="container" style="padding-top:12%;padding-bottom:12%;">
+        <div class="row">
+
+          <div class="col-lg-6" style="padding-right:5%;">
+            <p style="font-size:32px;font-weight:500;color:white;">照顾好生完宝宝的妈妈</p>
+            <p style="font-size:24px;font-weight:300;color:white;">每个月一万多块的月嫂费用花了，却仅限于带孩子，家里的卫生、吃饭、买菜等还是需要钟点工，尤其是月子里的月子餐更是讲究.</p>
+            <p style="font-size:24px;font-weight:300;color:white;">如何营养搭配，以及食材的费用都不便宜，再算上小王的新生儿游泳费和产后瘦身训练课程等费用，不禁感慨，生个孩子真贵！</p>
+            <div id="care" style="width: 800px;height:480px;margin-top:16%;margin-left:50%;transform: translate(-50%,0);"></div>
+            <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('care'));
+
+                var option = {
+                    angleAxis: {
+                        axisLabel: {
+                            fontSize: 24
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white' //坐标轴线颜色
+                            },
+                        }
+                    },
+                    radiusAxis: {
+                        axisLabel: {
+                            fontSize: 23
+                        },
+                        type: 'category',
+                        data: ['深圳', '广州', '上海', '北京', ],
+                        z: 10,
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white' //坐标轴线颜色
+                            },
+                        }
+                    },
+                    polar: {},
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "费用 <br/>{b}: {c}元"
+                    },
+                    series: [{
+                        type: 'bar',
+                        data: [14600, 13900, 13000, 14400],
+                        coordinateSystem: 'polar',
+                        name: '公立幼儿园学费',
+                        stack: 'a'
+                    }],
+
+                }
+
+
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            </script>
+            <p style="font-size:12px;font-weight:300;text-align:center;color:white;">*数据来源：各大母婴论坛近期数据</p>
+          </div>
+
+          <div class="col-lg-6">
+            <p style="font-size:32px;font-weight:500;color:white;">3岁：到了上幼儿园的时候</p>
+            <p style="font-size:24px;font-weight:300;color:white;">其实，一切都说得太早了！生孩子的费用和养孩子的费用比起来，真是微不足道！</p>
+            <p style="font-size:24px;font-weight:300;color:white;">工作实在太忙，长期雇佣保姆费用又贵，到了两岁时，小丽和老王打算送小王去幼儿园了，可没曾想，现在的幼儿园竟然要好几千一个月，这条养孩子的不归路真是钱包瘪了。</p>
+            <div id="pre" style="width: 800px;height:480px;margin-left:50%;margin-top:20%;transform: translate(-50%,0);"></div>
+            <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('pre'));
+
+                var option = {
+                    angleAxis: {
+                        axisLabel: {
+                            fontSize: 24
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white' //坐标轴线颜色
+                            },
+                        }
+                    },
+                    radiusAxis: {
+                        axisLabel: {
+                            fontSize: 23
+                        },
+                        type: 'category',
+                        data: ['深圳', '广州', '上海', '北京', ],
+                        z: 10,
+                        axisLine: {
+                            lineStyle: {
+                                color: 'white' //坐标轴线颜色
+                            },
+                        }
+                    },
+                    polar: {},
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "费用 <br/>{b}: {c}元/年"
+                    },
+                    series: [{
+                        type: 'bar',
+                        data: [700, 700, 700, 700],
+                        coordinateSystem: 'polar',
+                        name: '公立幼儿园学费',
+                        stack: 'a'
+                    }, {
+                        type: 'bar',
+                        data: [12650, 13562, 13100, 15146, ],
+                        coordinateSystem: 'polar',
+                        name: '私立幼儿园学费',
+                        stack: 'a'
+                    }],
+                    legend: {
+                        show: true,
+                        data: ['公立幼儿园学费', '私立幼儿园学费'],
+                        textStyle: {
+                            color: "white",
+                            fontSize: 24
+                        }
+                    }
+                }
+
+
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            </script>
+            <p style="font-size:12px;font-weight:300;text-align:center;color:white;">*数据来源：公立学校数据来自政府信息公开，私立学校数据来自第三方网站</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+<!-- 兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班兴趣班 -->
+
+    <div class="" style="background:url(piano.jpg);background-size:cover;background-attachment:fixed;">
+      <div class="container">
+        <div class="row" style="padding-top:15%;padding-bottom:15%;">
+          <div class="col-lg-12">
+            <div style="width: 80%;margin-left:50%;transform: translate(-50%,0);">
+              <p style="font-size:32px;font-weight:500;color:white;">琴棋书画样样齐全：不能输在起跑线</p>
+              <p style="font-size:24px;font-weight:300;color:white;">咬咬牙的小丽和老王还是选择了私立幼儿园，心里总是那句“不能让孩子输在起跑线上”。成绩好还不够，才艺更是家长们相互比拼的。（不禁感慨一句，中国式家长中的面子比拼真是太真实了）。</p>
+              <p style="font-size:24px;font-weight:300;color:white;">每一个父母都希望自己的孩子琴棋书画样样精通，小丽和老王也不例外。各种运动、逻辑思维班、美术班、钢琴班，真是数不胜数，每节课的价钱从50元到好几百不等，成为一个啥都会的孩子不容易，背后掏钱的父母心里也是有些痛啊！</p>
+            </div>
+            <div id="interest" style="width: 1200px;height:800px;margin-left:50%;transform: translate(-50%,0);"></div>
+            <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('interest'));
+
+                var data = [{
+                    name: '美学类',
+                    itemStyle: {
+                        color: '#0C4842'
+                    },
+                    children: [{
+                        name: '钢琴',
+                        itemStyle: {
+                            color: '#376B6D'
+                        },
+                        children: [{
+                            name: '高档',
+                            value: 30000,
+                            itemStyle: {
+                                color: '#376B6D'
+                            }
+                        }, {
+                            name: '普通档',
+                            value: 17000,
+                            itemStyle: {
+                                color: '#376B6D'
+                            }
+                        }, ]
+                    }, {
+                        name: '围棋',
+                        itemStyle: {
+                            color: '#376B6D'
+                        },
+                        children: [{
+                            name: '高档',
+                            value: 6000,
+                            itemStyle: {
+                                color: '#376B6D'
+                            }
+                        }, {
+                            name: '普通档',
+                            value: 3800,
+                            itemStyle: {
+                                color: '#376B6D'
+                            }
+                        }]
+                    }, {
+                        name: '书法',
+                        itemStyle: {
+                            color: '#376B6D'
+                        },
+                        children: [{
+                            name: '高档',
+                            value: 7200,
+                            itemStyle: {
+                                color: '#376B6D'
+                            }
+                        }, {
+                            name: '普通档',
+                            value: 3500,
+                            itemStyle: {
+                                color: '#376B6D'
+                            }
+                        }]
+                    }, {
+                        name: '素描',
+                        itemStyle: {
+                            color: '#376B6D'
+                        },
+                        children: [{
+                            name: '高档',
+                            value: 4700,
+                            itemStyle: {
+                                color: '#376B6D'
+                            }
+                        }, {
+                            name: '普通档',
+                            value: 2550,
+                            itemStyle: {
+                                color: '#376B6D'
+                            }
+                        }]
+                    }]
+                }, {
+                    name: '智力类',
+                    itemStyle: {
+                        color: '#0089A7'
+                    },
+                    children: [{
+                        name: '奥数等',
+                        itemStyle: {
+                            color: '#33A6B8'
+                        },
+                        children: [{
+                            name: '高档',
+                            value: 8000,
+                            itemStyle: {
+                                color: '#33A6B8'
+                            }
+                        }, {
+                            name: '普通档',
+                            value: 3000,
+                            itemStyle: {
+                                color: '#33A6B8'
+                            }
+                        }]
+                    }]
+                }, {
+                    name: '运动类',
+                    itemStyle: {
+                        color: '#C73E3A'
+                    },
+                    children: [{
+                        name: '球类',
+                        itemStyle: {
+                            color: '#d45a59'
+                        },
+                        children: [{
+                            name: '普通档',
+                            value: 2800,
+                            itemStyle: {
+                                color: '#ae341f'
+                            },
+
+                        }, {
+                            name: '高档',
+                            value: 6000,
+                            itemStyle: {
+                                color: '#da5c1f'
+                            }
+                        }]
+                    }, {
+                        name: '马术',
+                        itemStyle: {
+                            color: '#d45a59'
+                        },
+                        children: [{
+                            name: '普通档',
+                            value: 13500,
+                            itemStyle: {
+                                color: '#ae341f'
+                            }
+                        }, {
+                            name: '高档',
+                            value: 27000,
+                            itemStyle: {
+                                color: '#da5c1f'
+                            }
+                        }]
+                    }, {
+                        name: '卡丁车',
+                        itemStyle: {
+                            color: '#d45a59'
+                        },
+                        children: [{
+                            name: '普通档',
+                            value: 12000,
+                            itemStyle: {
+                                color: '#ae341f'
+                            }
+                        }, {
+                            name: '高档',
+                            value: 22500,
+                            itemStyle: {
+                                color: '#da5c1f'
+                            }
+                        }],
+                    }]
+                }];
+
+                option = {
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "兴趣爱好 <br/>{b}: {c}元/年"
+                    },
+                    series: {
+                        type: 'sunburst',
+                        highlightPolicy: 'ancestor',
+                        data: data,
+                        radius: [0, '95%'],
+                        sort: null,
+                        levels: [{}, {
+                            r0: '15%',
+                            r: '35%',
+                            itemStyle: {
+                                borderWidth: 2
+                            },
+                            label: {
+                                fontSize: 24,
+                                rotate: 'tangential'
+                            }
+                        }, {
+                            r0: '35%',
+                            r: '70%',
+                            label: {
+                                fontSize: 24,
+                                align: 'center'
+                            }
+                        }, {
+                            r0: '70%',
+                            r: '72%',
+                            label: {
+                                fontSize: 24,
+                                position: 'outside',
+                                padding: 3,
+                                silent: false
+                            },
+                            itemStyle: {
+                                borderWidth: 3
+                            }
+                        }]
+                    }
+                };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            </script>
+            <p style="font-size:12px;font-weight:300;color:white;text-align:center;">*数据来源：新东方等机构网站公开数据</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<!-- 学校学校学校学校学校学校学校学校学校学校学校学校学校学校学校学校学校学校学校学校学校学校学校学校学校 -->
+
+<div class="" style="background:url(stanford.jpg);background-size:cover;background-attachment:fixed;">
+  <div class="container" style="padding-top:12%;padding-bottom:12%;">
+    <div class="row">
+
+      <div class="col-lg-6" style="padding-right:5%;">
+        <p style="font-size:32px;font-weight:500;color:white;">小学：九层之台，起于垒土</p>
+        <p style="font-size:24px;font-weight:300;color:white;">奔波于各个兴趣班的小王渐渐长大，开始要上小学了，真正走入了学堂。各个公立小学的费用都差不多，但私立小学太贵了，还是让小王去公立小学里面好一点的学校吧。</p>
+        <div id="primary" style="width: 800px;height:480px;margin-left:50%;transform: translate(-50%,0);margin-top:30%;"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('primary'));
+
+            var option = {
+                angleAxis: {
+                    axisLabel: {
+                        fontSize: 24
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white' //坐标轴线颜色
+                        },
+                    }
+                },
+                radiusAxis: {
+                    axisLabel: {
+                        fontSize: 23
+                    },
+                    type: 'category',
+                    data: ['深圳', '广州', '上海', '北京', ],
+                    z: 10,
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white' //坐标轴线颜色
+                        },
+                    }
+                },
+                polar: {},
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "费用 <br/>{b}: {c}元/年"
+                },
+                series: [{
+                    type: 'bar',
+                    data: [5000, 5000, 5000, 5000],
+                    coordinateSystem: 'polar',
+                    name: '公立小学学费',
+                    stack: 'a'
+                }, {
+                    type: 'bar',
+                    data: [75654, 62350, 89333, 99150],
+                    coordinateSystem: 'polar',
+                    name: '私立小学学费',
+                    stack: 'a'
+                }],
+                legend: {
+                    show: true,
+                    data: ['公立小学学费', '私立小学学费'],
+                    textStyle: {
+                        color: "white",
+                        fontSize: 24
+                    }
+                }
+            };
+
+
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        </script>
+        <p style="font-size:12px;font-weight:300;text-align:center;color:white;">*数据来源：各大母婴论坛近期数据</p>
+      </div>
+
+      <div class="col-lg-6">
+        <p style="font-size:32px;font-weight:500;color:white;">12岁-22岁：10年漫漫求学路</p>
+        <p style="font-size:24px;font-weight:300;color:black;color:white;">懵懵懂懂的小王在兴趣班和学业的双重压力中，步入了自己的初中、高中以及大学，这些学费加起来可能也有十多万了。</p>
+        <p style="font-size:24px;font-weight:300;color:black;color:white;">找不到工作的巨大压力，使得小王开始犹豫自己是否要读研究生硕士或是出国留学，国内的学术型硕士倒是便宜，可出国就是好几十万啊。最后，小王选择了国内的专业型硕士。</p>
+        <div id="school" style="width: 800px;height:480px;margin-left:50%;transform: translate(-50%,0);margin-top:15%;"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('school'));
+
+            var data = [
+                [160000, 700000, 430000],
+                [26500, 141500, 84000],
+                [19500, 49500, 34500],
+                [160000, 700000, 430000],
+                [15500, 67500, 41500],
+                [94000, 290000, 192000],
+                [28000, 56000, 42000],
+                [8200, 15200, 11700],
+                [28000, 76000, 37000],
+                [8200, 11200, 9200]
+            ];
+            var cities = ['海外硕士', '国内专业硕士', '国内学术硕士', '海外本科', '国内本科', '私立高中(国际部)', '私立高中(普通)', '公立高中', '私立初中', '公立初中'];
+            var barHeight = 100;
+
+            option = {
+
+                legend: {
+                    show: true,
+                    data: ['价格范围', '均值'],
+                    textStyle: {
+                        color: "white",
+                        fontSize: 24
+                    }
+                },
+                dataZoom: [{
+                    type: 'inside',
+                    start: 0,
+                    end: 100
+                }],
+                grid: {
+                    top: 100
+                },
+                angleAxis: {
+                    axisLabel: {
+                        fontSize: 24
+                    },
+                    type: 'category',
+                    data: cities,
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white' //坐标轴线颜色
+                        },
+                    }
+                },
+                tooltip: {
+                    show: true,
+                    formatter: function(params) {
+                        var id = params.dataIndex;
+                        return cities[id] + '<br>最低：' + data[id][0] + '<br>最高：' + data[id][1] + '<br>平均：' + data[id][2];
+                    }
+                },
+                radiusAxis: {
+                    axisLabel: {
+                        fontSize: 17
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white' //坐标轴线颜色
+                        },
+                    }
+                },
+                polar: {},
+                series: [{
+                    type: 'bar',
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    data: data.map(function(d) {
+                        return d[0];
+                    }),
+                    coordinateSystem: 'polar',
+                    stack: '最大最小值',
+                    silent: true
+                }, {
+                    type: 'bar',
+                    data: data.map(function(d) {
+                        return d[1] - d[0];
+                    }),
+                    coordinateSystem: 'polar',
+                    name: '价格范围',
+                    stack: '最大最小值'
+                }, {
+                    type: 'bar',
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    data: data.map(function(d) {
+                        return d[2] - barHeight;
+                    }),
+                    coordinateSystem: 'polar',
+                    stack: '均值',
+                    silent: true,
+                    z: 10
+                }, {
+                    type: 'bar',
+                    data: data.map(function(d) {
+                        return barHeight * 2
+                    }),
+                    coordinateSystem: 'polar',
+                    name: '均值',
+                    stack: '均值',
+                    barGap: '-100%',
+                    z: 10
+                }],
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        </script>
+        <p style="font-size:12px;font-weight:300;text-align:center;color:white;">*数据来源：公立学校数据来自政府信息公开，私立学校数据来自第三方网站</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声尾声 -->
+
+  <div class="container" style="padding-top:10%;padding-bottom:10%;">
+    <div class="row">
+      <div class="col-lg-6" style="padding-right:30%;">
+        <img src="interview.png" alt="" style="width:700px;">
+      </div>
+      <div class="col-lg-6" style="padding-top:8%">
+        <img src="引号.png" alt="" style="width:6%;margin-bottom:10px;">
+        <p style="font-size:24px;font-weight:300;">小王毕业后顺利地找到了一份不错的工作，开始找女朋友、谈结婚，这个家庭的生活又开始了新的循环。</p>
+        <p style="font-size:24px;font-weight:300;">看到这一切，小丽和老王心里满是欣慰，这么多年的钱，总算是没白花啊！只要他好，父母付出什么都是值得的！”</p>
+      </div>
+    </div>
+  </div>
+
+      <div class="ui inverted vertical segment">
+
+        <div class="ui very padded grid">
+
+          <div class="four wide column" style="padding-left:50px;">
+            <p style="font-size:24px;">作者：育儿专家</p>
+            <p style="line-height:24px;">游戏制作、数据分析：刘飞扬 <br> 文案撰写、数据分析：潘雨荷 <br> 图表制作、数据分析：王子俊 <br> 网站制作、数据分析：许&nbsp;&nbsp;&nbsp;橼</p>
+          </div>
+
+          <div class="four wide column">
+          </div>
+
+          <div class="four wide column">
+          </div>
+
+          <div class="four wide column" style="padding-right:80px;">
+            <p style="font-size:24px;float:right;clear:both;">联系我们</p><br>
+            <p style="float:right;clear:both;margin-top:0;margin-bottom:5px;">华南理工大学&nbsp;&nbsp;&nbsp;网络与新媒体</p>
+            <p style="float:right;clear:both;margin-top:0;margin-bottom:5px;">E-mail: cooper.xuyuan@outlook.com</p><br>
+            <p style="float:right;clear:both;margin-top:0;margin-bottom:5px;">©2018 育儿专家. All rights reserved.</p>
+            <p style="float:right;clear:both;margin-top:0;margin-bottom:5px;">Powered by eCharts,&nbsp;Semantic UI,&nbsp;Bootstrap</p>
+
+          </div>
+
+        </div>
+      </div>
+
+
+<script language="Javascript" src="jquery-3.3.1.min.js"></script>
+<script language="Javascript" src="bootstrap.min.js"></script>
+</body>
+
+
+  </body>
+</html>
